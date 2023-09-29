@@ -19,8 +19,8 @@ export default function PlaceForm() {
           value={enteredTitle}
           style={styles.input}
         />
+        <ImagePicker/>
       </View>
-      <ImagePicker/>
     </ScrollView>
   )
 }
@@ -28,7 +28,7 @@ export default function PlaceForm() {
 const styles= StyleSheet.create({
   form: {
     flex: 1,
-    padding: 24
+    padding: 24,
   },
   label: {
     fontWeight: 'bold',
