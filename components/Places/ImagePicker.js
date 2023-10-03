@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { Colours } from '../../constants/colours';
 import OutlinedButton from "../UI/OutlinedButton";
+import { verifyPermissions } from "../../util/permissions";
 
 export default function ImagePicker() {
   const [cameraPermissionInformation, requestPermission] = useCameraPermissions();
@@ -13,7 +14,7 @@ export default function ImagePicker() {
   async function verifyPermissions() {
     if (cameraPermissionInformation.status === PermissionStatus.UNDETERMINED) {
       const response = await requestPermission();
-      return permissionResponse.granted;
+      return response.granted;
     }
 
     if (cameraPermissionInformation.status === PermissionStatus.DENIED) {
