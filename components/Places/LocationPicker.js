@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colours.primary100,
-    borderRadius: 4
+    borderRadius: 4,
+    overflow: 'hidden'
   },
   actions: {
     flexDirection: 'row',
@@ -80,6 +81,6 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: '100%',
+    height: '100%'
   }
 });
