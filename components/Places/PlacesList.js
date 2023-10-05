@@ -10,6 +10,7 @@ export default function PlacesList({places}) {
       </View>
     );
   }
+  
   const keyExtractor = item => item.id;
 
   function renderItem() {

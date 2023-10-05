@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, View, Alert, Image, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useIsFocused, useNavigation, useRoute } from "@react-navigation/native";
 import { getCurrentPositionAsync, useForegroundPermissions } from 'expo-location';
 import { PermissionStatus } from 'expo-image-picker';
 
@@ -9,10 +9,26 @@ import { Colours } from "../../constants/colours";
 import { verifyPermissions } from "../../util/permissions";
 import { getMapPreview } from "../../util/location";
 
-export default function LocationPicker() {
+export default function LocationPicker({onPickLocation}) {
   const [locationPermissionInformation, requestPermission] = useForegroundPermissions();
   const [pickedLocation, setPickedLocation] = useState();
+  const isFocused = useIsFocused();
   const navigation = useNavigation();
+  const route = useRoute();
+
+  useEffect(() => {
+    if (isFocused && route.params) {
+      const mapPickedLocation = {
+        lat: route.params.pickedLat,
+        long: route.params.pickedLong
+      };
+      setPickedLocation(mapPickedLocation);
+    }
+  }, [route, isFocused]);
+
+  useEffect(() => {
+    onPickLocation(pickedLocation);
+  }, [pickedLocation, onPickedLocation]);
 
   async function verifyPermissions () {
     if (locationPermissionInformation.status === PermissionStatus.UNDETERMINED) {

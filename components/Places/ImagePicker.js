@@ -6,9 +6,8 @@ import { Colours } from '../../constants/colours';
 import OutlinedButton from "../UI/OutlinedButton";
 import { verifyPermissions } from "../../util/permissions";
 
-export default function ImagePicker() {
+export default function ImagePicker({onTakeImage}) {
   const [cameraPermissionInformation, requestPermission] = useCameraPermissions();
-
   const [pickedImage, setPickedImage] = useState();
 
   async function verifyPermissions() {
@@ -39,6 +38,7 @@ export default function ImagePicker() {
     });
 
     setPickedImage(image.assets[0].uri);
+    onTakeImage(image.uri);
   }
 
   let imagePreview = <Text>No image taken yet.</Text>;
