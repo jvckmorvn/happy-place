@@ -28,9 +28,9 @@ export default function LocationPicker({onPickLocation}) {
 
   useEffect(() => {
     onPickLocation(pickedLocation);
-  }, [pickedLocation, onPickedLocation]);
+  }, [pickedLocation, onPickLocation]);
 
-  async function verifyPermissions () {
+  async function verifyPermissions() {
     if (locationPermissionInformation.status === PermissionStatus.UNDETERMINED) {
       const response = await requestPermission();
       return response.granted;

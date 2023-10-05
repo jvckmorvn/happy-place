@@ -26,26 +26,32 @@ export default function PlaceForm() {
   function savePlaceHandler() {}
 
   return (
-    <ScrollView style={styles.form}>
-      <View>
-        <Text style={styles.label}>Title</Text>
-        <TextInput
-          onChangeText={changeTitleHandler}
-          value={enteredTitle}
-          style={styles.input}
-        />
+    <ScrollView style={styles.formContainer}>
+      <View style={styles.form}>
+        <View>
+          <Text style={styles.label}>Title</Text>
+          <TextInput
+            onChangeText={changeTitleHandler}
+            value={enteredTitle}
+            style={styles.input}
+          />
+        </View>
+        <ImagePicker onTakeImage={takeImageHandler}/>
+        <LocationPicker onPickLocation={pickLocationHandler}/>
+        <Button onPress={savePlaceHandler}>Add Place</Button>
       </View>
-      <ImagePicker onTakeImage={takeImageHandler}/>
-      <LocationPicker onPickLocation={pickLocationHandler}/>
-      <Button onPress={savePlaceHandler}>Add Place</Button>
     </ScrollView>
   )
 }
 
 const styles= StyleSheet.create({
-  form: {
+  formContainer: {
     flex: 1,
-    padding: 24,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+  },
+  form: {
+    marginBottom: 30,
   },
   label: {
     fontWeight: 'bold',
