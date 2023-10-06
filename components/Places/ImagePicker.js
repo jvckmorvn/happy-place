@@ -38,7 +38,7 @@ export default function ImagePicker({onTakeImage}) {
     });
 
     setPickedImage(image.assets[0].uri);
-    onTakeImage(image.uri);
+    onTakeImage(image.assets[0].uri);
   }
 
   let imagePreview = <Text>No image taken yet.</Text>;

@@ -13,20 +13,20 @@ export default function PlacesList({places}) {
   
   const keyExtractor = item => item.id;
 
-  function renderItem() {
-    return <PlaceItem place={{item}}/>;
-  }
-
   return (
     <FlatList
+      style={styles.list}
       data={places}
       keyExtractor={keyExtractor}
-      renderItem={renderItem}
+      renderItem={({item}) => <PlaceItem place={{...item}}/>}
     />
   );
 }
 
 const styles = StyleSheet.create({
+  list: {
+    margin: 24
+  },
   fallbackContainer: {
     flex: 1,
     justifyContent: 'center',
