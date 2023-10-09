@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import { Colours } from '../../constants/colours';
 import OutlinedButton from "../UI/OutlinedButton";
-import { verifyPermissions } from "../../util/permissions";
 
 export default function ImagePicker({onTakeImage}) {
   const [cameraPermissionInformation, requestPermission] = useCameraPermissions();

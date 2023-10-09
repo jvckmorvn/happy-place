@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useEffect, useState } from 'react';
-import AppLoading from 'expo-app-loading';
 
 import AllPlaces from './screens/AllPlaces';
 import AddPlace from './screens/AddPlace';
@@ -24,10 +23,6 @@ export default function App() {
       console.log(error);
     });
   }, []);
-
-  if (!dbInitialised) {
-    return <AppLoading/>
-  }
 
   return (
     <>

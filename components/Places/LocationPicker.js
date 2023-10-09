@@ -6,7 +6,6 @@ import { PermissionStatus } from 'expo-image-picker';
 
 import OutlinedButton from "../UI/OutlinedButton";
 import { Colours } from "../../constants/colours";
-import { verifyPermissions } from "../../util/permissions";
 import { getAddress, getMapPreview } from "../../util/location";
 
 export default function LocationPicker({onPickLocation}) {
