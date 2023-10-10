@@ -1,11 +1,12 @@
 import { useCallback, useLayoutEffect, useState } from 'react';
 import { Alert, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+
 import IconButton from '../components/UI/IconButton';
 
 export default function Map({navigation, route}) {
   const initialLocation = route.params && {
-    lat: route.params.initalLat,
+    lat: route.params.initialLat,
     long: route.params.initialLong
   }
   const [selectedLocation, setSelectedLocation] = useState(initialLocation);
