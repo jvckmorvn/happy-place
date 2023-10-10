@@ -1,8 +1,15 @@
 import { FlatList, View, Text, StyleSheet } from "react-native";
 
 import PlaceItem from "./PlaceItem";
+import { useNavigation } from '@react-navigation/native';
 
 export default function PlacesList({places}) {
+  const navigation = useNavigation();
+  
+  function selectPlaceHandler(place) {
+    navigation.navigate('PlaceDetails', {place});
+  }
+
   if (!places || places.length === 0) {
     return (
       <View style={styles.fallbackContainer}>
@@ -18,7 +25,7 @@ export default function PlacesList({places}) {
       style={styles.list}
       data={places}
       keyExtractor={keyExtractor}
-      renderItem={({item}) => <PlaceItem place={{...item}}/>}
+      renderItem={({item}) => <PlaceItem place={{...item}} onSelect={selectPlaceHandler.bind(this, item)}/>}
     />
   );
 }
