@@ -1,4 +1,4 @@
-# native-features
+# happy-place
 Camera/geolocation app built using React Native
 
 Screens:
