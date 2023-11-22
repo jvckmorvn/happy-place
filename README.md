@@ -1,4 +1,4 @@
-# happy-place
+# latitude
 Camera/geolocation app built using React Native
 
 Screens:
