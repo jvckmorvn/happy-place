@@ -1,8 +1,7 @@
 # latitude
+
 Camera/geolocation app built using React Native
 
-Screens:
-<br>
 <img width="433" alt="places index screen empty" src="https://github.com/jvckmorvn/native-features/assets/68481327/e13338a8-b6c8-44bb-8a27-3920ba6df5ec">
 <br>
 <img width="433" alt="add a place screen empty" src="https://github.com/jvckmorvn/native-features/assets/68481327/12e48a13-de48-4ecf-b4ac-40ab0e0959c4">
